@@ -150,10 +150,10 @@ class LanguageParser(QueryPartParser):
 class ExternalBangParser(QueryPartParser):
     @staticmethod
     def check(raw_value):
-        return raw_value.startswith('!!')
+        return raw_value[0] == '!' and not raw_value.startswith('!!')
 
     def __call__(self, raw_value):
-        value = raw_value[2:]
+        value = raw_value[1:]
         found, bang_ac_list = self._parse(value) if len(value) > 0 else (False, [])
         if self.enable_autocomplete:
             self._autocomplete(bang_ac_list)
@@ -171,16 +171,16 @@ class ExternalBangParser(QueryPartParser):
         if not bang_ac_list:
             bang_ac_list = ['g', 'ddg', 'bing']
         for external_bang in bang_ac_list:
-            self._add_autocomplete('!!' + external_bang)
+            self._add_autocomplete('!' + external_bang)
 
 
 class BangParser(QueryPartParser):
     @staticmethod
     def check(raw_value):
-        return raw_value[0] == '!'
+        return raw_value.startswith('!!')
 
     def __call__(self, raw_value):
-        value = raw_value[1:].replace('-', ' ').replace('_', ' ')
+        value = raw_value[2:].replace('-', ' ').replace('_', ' ')
         found = self._parse(value) if len(value) > 0 else False
         if found and raw_value[0] == '!':
             self.raw_text_query.specific = True
@@ -241,8 +241,8 @@ class RawTextQuery:
     PARSER_CLASSES = [
         TimeoutParser,  # this force the timeout
         LanguageParser,  # this force a language
-        ExternalBangParser,  # external bang (must be before BangParser)
         BangParser,  # this force a engine or category
+        ExternalBangParser,  # external bang (must be after BangParser)
     ]
 
     def __init__(self, query, disabled_engines):
