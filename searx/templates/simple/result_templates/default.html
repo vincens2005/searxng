@@ -1,6 +1,7 @@
-{% from 'simple/macros.html' import result_header, result_sub_header, result_sub_footer, result_footer with context %}
+{% from 'simple/macros.html' import result_header, result_open_link, result_close_link, result_sub_header, result_sub_footer, result_footer with context %}
 
-{{ result_header(result, favicons, image_proxify) -}}
+{{ result_open_link(result.url, "result-a") }}
+{{ result_header(result, favicons, image_proxify) }}
 {{- result_sub_header(result) -}}
 {% if result.iframe_src -%}
 <p class="altlink"><a class="btn-collapse collapsed media-loader disabled_if_nojs" data-target="#result-media-{{ index }}" data-btn-text-collapsed="{{ _('show media') }}" data-btn-text-not-collapsed="{{ _('hide media') }}">{{ icon('music-note') }} {{ _('show media') }}</a></p>
@@ -26,3 +27,4 @@
 </div>
 {%- endif %}
 {{- result_footer(result) }}
+{{- result_close_link() }}

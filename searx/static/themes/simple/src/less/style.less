@@ -55,7 +55,7 @@
 
 // Main LESS-Code
 html {
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9em;
   .text-size-adjust;
 
@@ -122,7 +122,10 @@ input[type="submit"],
 
 a {
   text-decoration: none;
-  color: var(--color-url-font);
+  
+  &:not(.result-a) {    
+    color: var(--color-url-font);
+  }
 
   &:visited {
     color: var(--color-url-visited-font);
@@ -130,6 +133,9 @@ a {
     .highlight {
       color: var(--color-url-visited-font);
     }
+  }
+  &.result-a {
+    color: inherit;
   }
 }
 
@@ -170,11 +176,13 @@ article[data-vim-selected].category-social {
   .ltr-border-left(0.2rem solid transparent);
 
   h3 {
+    font-weight: 550;
     font-size: 1.2rem;
     word-wrap: break-word;
     margin: 0.4rem 0 0.4rem 0;
     padding: 0;
-
+    
+   
     a {
       color: var(--color-result-link-font);
       font-weight: normal;
@@ -205,12 +213,12 @@ article[data-vim-selected].category-social {
     padding: 0;
     max-width: 54em;
     word-wrap: break-word;
-    line-height: 1.24;
+    line-height: 1.45;
 
     .highlight {
       color: var(--color-result-description-highlight-font);
       background: inherit;
-      font-weight: bold;
+      font-weight: 500;
     }
   }
 
@@ -299,6 +307,12 @@ article[data-vim-selected].category-social {
 
   .break {
     clear: both;
+  }
+  
+  &:hover {
+    h3 {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -407,6 +421,7 @@ article[data-vim-selected].category-social {
   flex-wrap: wrap;
   justify-content: flex-end;
   color: var(--color-result-engines-font);
+  margin-top: 8px;
 
   span {
     font-size: smaller;
@@ -422,7 +437,7 @@ article[data-vim-selected].category-social {
 }
 
 .highlight {
-  color: var(--color-result-link-font-highlight);
+  color: var(--color-result-link-font-highlight) !important;
   background: inherit;
 }
 
@@ -545,7 +560,7 @@ article[data-vim-selected].category-social {
 #suggestions,
 #infoboxes {
   input {
-    padding: 0;
+    padding: 2px;
     margin: 3px;
     font-size: 0.9em;
     display: inline-block;
@@ -562,7 +577,7 @@ article[data-vim-selected].category-social {
   .infobox .url a {
     color: var(--color-result-link-font);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
 
     &:hover {
       text-decoration: underline;
@@ -602,6 +617,7 @@ article[data-vim-selected].category-social {
   padding: @result-padding;
   margin: 1rem 0;
   margin-top: 0;
+  line-height: 1.45;
   color: var(--color-answer-font);
   .rounded-corners;
 
@@ -627,10 +643,13 @@ article[data-vim-selected].category-social {
 
   .infobox {
     margin: 10px 0 10px;
+    
     border: 1px solid var(--color-sidebar-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     padding: 1rem;
     font-size: 0.9em;
     .rounded-corners;
+    background: var(--color-sidebar-background);
 
     h2 {
       margin: 0 0 0.5em 0;
