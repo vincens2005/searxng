@@ -213,7 +213,7 @@ article[data-vim-selected].category-social {
     padding: 0;
     max-width: 54em;
     word-wrap: break-word;
-    line-height: 1.45;
+    line-height: 1.6;
 
     .highlight {
       color: var(--color-result-description-highlight-font);
@@ -643,7 +643,7 @@ article[data-vim-selected].category-social {
 
   .infobox {
     margin: 10px 0 10px;
-    
+    line-height: 1.4;
     border: 1px solid var(--color-sidebar-border);
     box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     padding: 1rem;
@@ -657,10 +657,12 @@ article[data-vim-selected].category-social {
 
     img {
       max-width: 100%;
-      max-height: 12em;
+      max-height: 14em;
       display: block;
-      margin: 0 auto;
+      float: right;
+      margin: 1em;
       padding: 0;
+      .rounded-corners(4px);
     }
 
     dt {
@@ -747,6 +749,7 @@ article[data-vim-selected].category-social {
 
 #pagination {
   grid-area: pagination;
+  margin-top: 2em;
 
   br {
     clear: both;
@@ -1014,7 +1017,9 @@ article[data-vim-selected].category-social {
 
   .result {
     background: var(--color-result-background);
-    margin: 1rem 0;
+    margin: 1rem;
+    padding: 1rem;
+    .rounded-corners;
   }
 
   .result-images {
