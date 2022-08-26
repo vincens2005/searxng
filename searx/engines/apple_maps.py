@@ -44,7 +44,6 @@ def obtain_token():
     return token
 
 
-
 def request(query, params):
     if time() - (token['last_updated'] or 0) > 1800:
         obtain_token()
