@@ -5,23 +5,23 @@ Suchmaschinen, Sprachen und mehr geändert werden können.  In den
 {{link('Eigenschaften','preferences')}} sind die Kategorien, Suchmaschinen und
 Sprachen zu finden, die zur Verfügung stehen.
 
-## `!` Suchmaschine und Kategorie auswählen
+## `!!` Suchmaschine und Kategorie auswählen
 
-Zum Festlegen von Kategorie- und/oder Suchmaschinen dient das Präfix `!`.  Um
+Zum Festlegen von Kategorie- und/oder Suchmaschinen dient das Präfix `!!`.  Um
 ein paar Beispiele zu geben:
 
 - in der Wikipedia nach dem Begriff **paris** suchen
 
-  - {{search('!wp paris')}}
-  - {{search('!wikipedia paris')}}
+  - {{search('!!wp paris')}}
+  - {{search('!!wikipedia paris')}}
 
 - in der Kategorie **Karte** nach dem Begriff **paris** suchen:
 
-  - {{search('!map paris')}}
+  - {{search('!!map paris')}}
 
 - in der Kategorie **Bilder** suchen
 
-  - {{search('!images Wau Holland')}}
+  - {{search('!!images Wau Holland')}}
 
 Abkürzungen der Suchmaschinen und Kategorien sind ebenfalls möglich und können
 auch kombiniert werden.  So wird z.B. mit {{search('!map !ddg !wp paris')}} in
@@ -37,15 +37,15 @@ einfaches Beispiel zu geben:
 
   - {{search(':de !wp Wau Holland')}}
 
-## `!!` external bangs
+## `!` external bangs
 
-SearXNG unterstützt die _external bangs_ von [ddg].  Das Präfix `!!` kann
+SearXNG unterstützt die _external bangs_ von [ddg].  Das Präfix `!` kann
 verwendet werden um direkt zu einer externen Suchseite zu springen.  Um ein
 Beispiel zu geben:
 
 - In Wikipedia mit einer benutzerdefinierten Sprache eine Suche durchführen
 
-  - {{search('!!wde Wau Holland')}}
+  - {{search('!wde Wau Holland')}}
 
 Bitte beachten; die Suche wird direkt in der externen Suchmaschine durchgeführt.
 SearXNG kann die Privatsphäre des Benutzers in diesem Fall nur eingeschränkt

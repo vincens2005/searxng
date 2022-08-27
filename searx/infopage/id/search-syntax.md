@@ -4,23 +4,22 @@ SearXNG mempunyai sintaks pencarian memungkinkan Anda untuk mengubah kategori,
 mesin pencari, bahasa dan lainnya.  Lihat {{link('preferensi', 'preferences')}}
 untuk daftar mesin pencari, kategori dan bahasa.
 
-## `!` pilih mesin pencari dan kategori
+## `!!` pilih mesin pencari dan kategori
 
-Untuk menetapkan nama kategori dan/atau mesin pencari gunakan awalan `!`.
-Sebagai contoh:
+Untuk menetapkan nama kategori dan/atau mesin pencari gunakan awalan `!!`.  Sebagai contoh:
 
 - cari di Wikipedia tentang **Jakarta**
 
-  - {{search('!wp Jakarta')}}
-  - {{search('!wikipedia Jakarta')}}
+  - {{search('!!wp Jakarta')}}
+  - {{search('!!wikipedia Jakarta')}}
 
 - cari dalam kategori **peta** untuk **Jakarta**
 
-  - {{search('!map Jakarta')}}
+  - {{search('!!map Jakarta')}}
 
 - pencarian gambar
 
-  - {{search('!images kucing')}}
+  - {{search('!!images kucing')}}
 
 Singkatan mesin pencari dan bahasa juga diterima.  Pengubah mesin/kategori dapat
 dirantai dan inklusif.  Misalnya dengan pencarian {{search('!map !ddg !wp
@@ -35,15 +34,14 @@ Untuk memilih saringan bahasa gunakan awalan `:`.  Sebagai contoh:
 
   - {{search(':en !wp Jakarta')}}
 
-## `!!` mesin pencarian (*bangs*) eksternal
+## `!` mesin pencarian (*bangs*) eksternal
 
-SearXNG mendukung mesin pencarian eksternal (*bangs*) dari [DuckDuckGo].  Untuk
-langsung lompat ke sebuah laman pencarian eksternal gunakan awalan `!!`.
-Sebagai contoh:
+SearXNG mendukung mesin pencarian eksternal (*bangs*) dari [DuckDuckGo].  Untuk langsung lompat ke sebuah
+laman pencarian eksternal gunakan awalan `!`.  Sebagai contoh:
 
 - cari Wikipedia dengan bahasa yang lain
 
-  - {{search('!!wen cat')}}
+  - {{search('!wen cat')}}
 
 Diingat, pencarian Anda akan dilakukan secara langsung di mesin pencari
 eksternal, SearXNG tidak dapat melindungi privasi Anda di sana.

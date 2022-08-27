@@ -4,22 +4,22 @@ SearXNG comes with a search syntax by with you can modify the categories,
 engines, languages and more.  See the {{link('preferences', 'preferences')}} for
 the list of engines, categories and languages.
 
-## `!` select engine and category
+## `!!` select engine and category
 
-To set category and/or engine names use a `!` prefix.  To give a few examples:
+To set category and/or engine names use a `!!` prefix.  To give a few examples:
 
 - search in Wikipedia for **paris**
 
-  - {{search('!wp paris')}}
-  - {{search('!wikipedia paris')}}
+  - {{search('!!wp paris')}}
+  - {{search('!!wikipedia paris')}}
 
 - search in category **map** for **paris**
 
-  - {{search('!map paris')}}
+  - {{search('!!map paris')}}
 
 - image search
 
-  - {{search('!images Wau Holland')}}
+  - {{search('!!images Wau Holland')}}
 
 Abbreviations of the engines and languages are also accepted.  Engine/category
 modifiers are chain able and inclusive.  E.g. with {{search('!map !ddg !wp
@@ -33,14 +33,14 @@ To select language filter use a `:` prefix.  To give an example:
 
   - {{search(':fr !wp Wau Holland')}}
 
-## `!!` external bangs
+## `!` external bangs
 
-SearXNG supports the external bangs from [DuckDuckGo].  To directly jump to a
-external search page use the `!!` prefix.  To give an example:
+SearXNG supports the external bangs from [DuckDuckGo].  To directly jump to a external
+search page use the `!` prefix.  To give an example:
 
 - search Wikipedia by a custom language
 
-  - {{search('!!wfr Wau Holland')}}
+  - {{search('!wfr Wau Holland')}}
 
 Please note, your search will be performed directly in the external search
 engine, SearXNG cannot protect your privacy on this.
