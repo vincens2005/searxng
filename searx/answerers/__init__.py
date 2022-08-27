@@ -28,7 +28,7 @@ def get_answerers_by_keywords(answerers):
     return by_keyword
 
 
-def ask(query):
+def ask(query, request):
     results = []
     query_parts = list(filter(None, query.query.split()))
 
@@ -36,7 +36,7 @@ def ask(query):
         return results
 
     for answerer in answerers_by_keywords[query_parts[0]]:
-        result = answerer(query)
+        result = answerer(query, request)
         if result:
             results.append(result)
     return results

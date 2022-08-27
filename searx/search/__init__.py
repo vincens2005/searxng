@@ -64,19 +64,6 @@ class Search:
                 return True
         return False
 
-    def search_answerers(self):
-        """
-        Check if an answer return a result.
-        If yes, update self.result_container and return True
-        """
-        answerers_results = ask(self.search_query)
-
-        if answerers_results:
-            for results in answerers_results:
-                self.result_container.extend('answer', results)
-            return True
-        return False
-
     # do search-request
     def _get_requests(self):
         # init vars
@@ -194,6 +181,19 @@ class SearchWithPlugins(Search):
         # * https://werkzeug.palletsprojects.com/en/2.0.x/local/#werkzeug.local.LocalProxy._get_current_object
         # pylint: enable=line-too-long
         self.request = request._get_current_object()
+    
+    def search_answerers(self):
+        """
+        Check if an answer return a result.
+        If yes, update self.result_container and return True
+        """
+        answerers_results = ask(self.search_query, self.request)
+        
+        if answerers_results:
+            for results in answerers_results:
+                self.result_container.extend('answer', results)
+            return True
+        return False
 
     def _on_result(self, result):
         return plugins.call(self.ordered_plugin_list, 'on_result', self.request, self, result)

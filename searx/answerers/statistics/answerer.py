@@ -9,7 +9,7 @@ keywords = ('min', 'max', 'avg', 'sum', 'prod')
 
 # required answerer function
 # can return a list of results (any result type) for a given query
-def answer(query):
+def answer(query, _):
     parts = query.query.split()
 
     if len(parts) < 2:
