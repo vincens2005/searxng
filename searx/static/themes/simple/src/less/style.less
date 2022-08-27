@@ -137,6 +137,10 @@ a {
   }
   &.result-a {
     color: inherit;
+    --text-decoration-color: var(--color-result-link-font);
+    &:visited {
+        --text-decoration-color: var(--color-result-link-visited-font);
+    }
   }
 }
 
@@ -150,7 +154,7 @@ article[data-vim-selected] {
 }
 
 article.result-images[data-vim-selected] {
-
+  
   border: none;
   .rounded-corners;
 
@@ -185,7 +189,11 @@ article[data-vim-selected].category-social {
     word-wrap: break-word;
     margin: 0.4rem 0 0.4rem 0;
     padding: 0;
+    color: var(--text-decoration-color);
     
+    .highlight {
+      color: inherit;
+    }
    
     a {
       font-weight: normal;
@@ -315,6 +323,7 @@ article[data-vim-selected].category-social {
   &:hover {
     h3 {
       text-decoration: underline;
+      text-decoration-color: var(--text-decoration-color);
     }
   }
 }
@@ -440,7 +449,7 @@ article[data-vim-selected].category-social {
 }
 
 .highlight {
-  color: var(--color-result-link-font-highlight) !important;
+  color: var(--color-result-link-font-highlight);
   background: inherit;
 }
 
@@ -648,7 +657,7 @@ article[data-vim-selected].category-social {
     margin: 10px 0 10px;
     line-height: 1.4;
     border: 1px solid var(--color-sidebar-border);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    box-shadow: var(--infobox-shadow);
     padding: 1rem;
     font-size: 0.9em;
     .rounded-corners;
@@ -775,7 +784,7 @@ article[data-vim-selected].category-social {
   .ltr-left(@results-width + @results-offset + (0.5 * @results-gap - 1.2em));
   transition: opacity 0.3s, filter 0.15s;
   opacity: 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  box-shadow: var(--infobox-shadow);
   .rounded-corners;
 
   &:hover {
