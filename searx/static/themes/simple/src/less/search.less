@@ -74,6 +74,7 @@
 
 .search_categories {
   grid-area: categories;
+  margin-top: 0.5em;
 
   .help {
     display: none;
@@ -94,14 +95,26 @@
   grid-area: search;
 }
 
+#main_results {
+  .search_box {
+    position: absolute;
+  }
+}
+
 .search_box {
   border-radius: 0.5rem;
   width: @search-width;
   display: inline-flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   white-space: nowrap;
   box-shadow: var(--color-search-shadow);
   border: var(--search-border);
+  background: var(--color-search-background);
+
+  .search_box_inner {
+    display: inline-flex;
+    width: 100%;
+  }
 }
 
 #clear_search {

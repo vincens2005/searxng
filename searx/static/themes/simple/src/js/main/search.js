@@ -56,6 +56,8 @@
           Delay: 100,
           _Position: function () {},
           _Open: function () {
+            if (this.DOMResults.parentNode.classList.contains("search_box_inner")) this.DOMResults.parentNode.parentNode.append(this.DOMResults); // move it out one step (cursed af)
+
             var params = this;
             Array.prototype.forEach.call(this.DOMResults.getElementsByTagName("li"), function (li) {
               if (li.getAttribute("class") != "locked") {
