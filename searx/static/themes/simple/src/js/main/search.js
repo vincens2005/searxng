@@ -53,7 +53,7 @@
             "X-Requested-With": "XMLHttpRequest"
           },
           MinChars: searxng.settings.autocomplete_min,
-          Delay: 300,
+          Delay: 100,
           _Position: function () {},
           _Open: function () {
             var params = this;
@@ -64,6 +64,23 @@
                 };
               }
             });
+          },
+          _Render: function (response) {
+            var ul;
+            var hr = document.createElement("hr");
+
+            if (typeof response == "string") {
+              ul = this._RenderRaw(response);
+            } else {
+              ul = this._RenderResponseItems(response);
+            }
+
+            if (this.DOMResults.hasChildNodes()) {
+              this.DOMResults.innerHTML = "";
+            }
+
+            this.DOMResults.appendChild(hr);
+            this.DOMResults.appendChild(ul);
           },
         }, "#" + qinput_id);
       }

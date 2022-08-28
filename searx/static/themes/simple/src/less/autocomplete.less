@@ -18,6 +18,10 @@
   &:empty {
     display: none;
   }
+  
+  hr {
+    margin: 0.43rem 0 0;
+  }
 
   > ul {
     list-style-type: none;
@@ -53,10 +57,10 @@
     color: var(--color-autocomplete-font);
     max-height: 32rem;
     overflow-y: auto;
-    z-index: 100;
-    margin-top: 3.5rem;
-    border-radius: 0.8rem;
-    box-shadow: 0 2px 8px rgb(34 38 46 / 25%);
+    z-index: 10;
+    margin-top: 2.7rem;
+    border-radius: 0 0 0.8rem 0.8rem;
+    box-shadow: var(--color-search-shadow);
 
     &:empty {
       display: none;

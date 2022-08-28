@@ -916,7 +916,7 @@ def autocompleter():
         for autocomplete_text in raw_text_query.autocomplete_list:
             results.append(raw_text_query.get_autocomplete_full_query(autocomplete_text))
 
-    for answers in ask(raw_text_query):
+    for answers in ask(raw_text_query, request._get_current_object()):
         for answer in answers:
             results.append(str(answer['answer']))
 
