@@ -63,7 +63,7 @@
   --color-result-border: #ddd;
   --color-result-url-font: #000;
   --color-result-vim-selected: #f7f7f7;
-  --color-result-vim-arrow: #1a0dab;
+  --color-result-vim-arrow: var(--color-searxng-logo);
   --color-result-description-highlight-font: #000;
   --color-result-link-font: #1a0dab;
   --color-result-link-font-highlight: #000bbb;
@@ -84,7 +84,7 @@
   --color-result-detail-font: #fff;
   --color-result-detail-label-font: lightgray;
   --color-result-detail-background: #242424;
-  --color-result-detail-hr: #555;
+  --color-result-detail-hr: #f4f4f4;
   --color-result-detail-link: #fff;
   --color-result-detail-loader-border: rgba(255, 255, 255, 0.2);
   --color-result-detail-loader-borderleft: rgba(0, 0, 0, 0);
@@ -119,6 +119,7 @@
 
   /// misc styles
   --infobox-shadow: 0 2px 3px rgba(0, 0, 0, 0.06);
+  --search-border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .dark-themes() {
@@ -178,8 +179,7 @@
   --color-result-background: #161616;
   --color-result-border: #333;
   --color-result-url-font: #cac9c9;
-  --color-result-vim-selected: #1f1f23cc;
-  --color-result-vim-arrow: #769dff;
+  --color-result-vim-selected: #282828cc;
   --color-result-description-highlight-font: #fff;
   --color-result-link-font: #eee;
   --color-result-link-font-highlight: #eee;
@@ -235,6 +235,7 @@
 
   /// misc styles
   --infobox-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --search-border: 1px solid #333;
 }
 
 /// Dark Theme (autoswitch based on device pref)
