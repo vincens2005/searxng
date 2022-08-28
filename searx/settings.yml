@@ -26,9 +26,9 @@ search:
   # Existing autocomplete backends: "dbpedia", "duckduckgo", "google", "yandex",
   # "seznam", "startpage", "swisscows", "qwant", "wikipedia" - leave blank to turn it off
   # by default.
-  autocomplete: ""
+  autocomplete: "duckduckgo"
   # minimun characters to type before autocompleter starts
-  autocomplete_min: 4
+  autocomplete_min: 1
   # Default search language - leave blank to detect from browser information or
   # use codes from 'languages.py'
   default_lang: ""
@@ -82,7 +82,7 @@ server:
   http_protocol_version: "1.0"
   # POST queries are more secure as they don't show up in history but may cause
   # problems when using Firefox containers
-  method: "POST"
+  method: "GET"
   default_http_headers:
     X-Content-Type-Options: nosniff
     X-XSS-Protection: 1; mode=block
@@ -102,7 +102,7 @@ ui:
   templates_path: ""
   # query_in_title: When true, the result page's titles contains the query
   # it decreases the privacy, since the browser can records the page titles.
-  query_in_title: false
+  query_in_title: true
   # infinite_scroll: When true, automatically loads the next page when scrolling to bottom of the current page.
   infinite_scroll: false
   # ui theme
@@ -198,7 +198,7 @@ outgoing:
 
 # Comment or un-comment plugin to activate / deactivate by default.
 #
-# enabled_plugins:
+enabled_plugins:
 #   # these plugins are enabled if nothing is configured ..
 #   - 'Hash plugin'
 #   - 'Search on category select'
@@ -207,7 +207,7 @@ outgoing:
 #   - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
 #   # these plugins are disabled if nothing is configured ..
 #   - 'Hostname replace'  # see hostname_replace configuration below
-#   - 'Open Access DOI rewrite'
+    - 'Open Access DOI rewrite'
 #   - 'Vim-like hotkeys'
 #   - 'Tor check plugin'
 #   # Read the docs before activate: auto-detection of the language could be
@@ -496,7 +496,6 @@ engines:
     engine: duckduckgo_definitions
     shortcut: ddd
     weight: 2
-    disabled: true
     tests: *tests_infobox
 
   # cloudflare protected
@@ -551,6 +550,7 @@ engines:
     timeout: 3.0
     weight: 2
     tests: *tests_infobox
+    disabled: true
 
   - name: duckduckgo
     engine: duckduckgo
@@ -560,7 +560,6 @@ engines:
     engine: duckduckgo_images
     shortcut: ddi
     timeout: 3.0
-    disabled: true
 
   - name: duckduckgo weather
     engine: duckduckgo_weather
