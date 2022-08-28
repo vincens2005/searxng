@@ -9,6 +9,7 @@
 
   .rounded-corners;
 
+
   &:active,
   &:focus,
   &:hover {
@@ -63,10 +64,19 @@
     border-radius: 0 0 0.8rem 0.8rem;
     box-shadow: var(--color-search-shadow);
 
+    // god this is so cursed but it works
+    border: var(--search-border);
+    transform: translateX(-1px);
+    padding-right: var(--autocomplete-padding-right);
+
     &:empty {
       display: none;
     }
   }
+}
+
+.results_endpoint {
+  --autocomplete-padding-right: 1px; // it needs 1px of padding-right on the results page only
 }
 
 @media screen and (max-width: @phone) {
