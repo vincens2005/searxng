@@ -95,9 +95,11 @@
   grid-area: search;
 }
 
-#main_results {
-  .search_box {
-    position: absolute;
+@media screen and (min-width: @phone) {
+  #main_results {
+    .search_box {
+      position: absolute;
+    }
   }
 }
 
