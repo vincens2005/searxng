@@ -84,6 +84,15 @@
             this.DOMResults.appendChild(hr);
             this.DOMResults.appendChild(ul);
           },
+          _Select: function (item) {
+            if (item.hasAttribute("data-autocomplete-value")) {
+              this.Input.value = item.getAttribute("data-autocomplete-value");
+            } else {
+              this.Input.value = item.innerHTML;
+            }
+            this.Input.setAttribute("data-autocomplete-old-value", this.Input.value);
+            document.querySelector("#search").submit();
+          },
         }, "#" + qinput_id);
       }
 
