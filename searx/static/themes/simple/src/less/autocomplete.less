@@ -20,7 +20,7 @@
   }
 
   hr {
-    margin: 0.43rem 0 0;
+    margin: 0;
     color: var(--color-result-detail-hr);
   }
 
@@ -64,14 +64,7 @@
     max-height: 32rem;
     overflow-y: auto;
     z-index: 10;
-    margin-top: 2.7rem;
     border-radius: 0 0 0.8rem 0.8rem;
-    box-shadow: var(--color-search-shadow);
-
-    // god this is so cursed but it works
-    border: var(--search-border);
-    transform: translateX(-1px);
-    padding-right: var(--autocomplete-padding-right);
 
     &:empty {
       display: none;
@@ -79,9 +72,7 @@
   }
 }
 
-.results_endpoint {
-  --autocomplete-padding-right: 1px; // it needs 1px of padding-right on the results page only
-}
+
 
 @media screen and (max-width: @phone) {
   .autocomplete {
