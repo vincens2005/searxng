@@ -46,6 +46,7 @@ def generate_condition_table(condition):
 
     res += f"<tr><td>{gettext('Humidity')}</td><td>{condition['humidity'] * 100}%</td></tr>"
 
+
     return res
 
 
