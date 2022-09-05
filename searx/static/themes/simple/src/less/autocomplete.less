@@ -1,13 +1,13 @@
 /*! Autocomplete.js v2.6.3 | license MIT | (c) 2017, Baptiste Donaux | http://autocomplete-js.com */
 
 .autocomplete {
-  position: absolute;
   width: @search-width;
   max-height: 0;
   overflow-y: hidden;
   .ltr-text-align-left();
 
   .rounded-corners;
+
 
   &:active,
   &:focus,
@@ -17,6 +17,11 @@
 
   &:empty {
     display: none;
+  }
+
+  hr {
+    margin: 0;
+    color: var(--color-result-detail-hr);
   }
 
   > ul {
@@ -53,16 +58,16 @@
     color: var(--color-autocomplete-font);
     max-height: 32rem;
     overflow-y: auto;
-    z-index: 100;
-    margin-top: 3.5rem;
-    border-radius: 0.8rem;
-    box-shadow: 0 2px 8px rgb(34 38 46 / 25%);
+    z-index: 10;
+    border-radius: 0 0 0.8rem 0.8rem;
 
     &:empty {
       display: none;
     }
   }
 }
+
+
 
 @media screen and (max-width: @phone) {
   .autocomplete {
