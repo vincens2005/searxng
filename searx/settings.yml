@@ -201,11 +201,19 @@ outgoing:
 enabled_plugins:
 #   # these plugins are enabled if nothing is configured ..
 <<<<<<< HEAD
+<<<<<<< HEAD
     - 'Hash plugin'
     - 'Search on category select'
     - 'Self Informations'
     - 'Tracker URL remover'
     - 'Open Access DOI rewrite'
+=======
+#   - 'Hash plugin'
+#   - 'Search on category select'
+#   - 'Self Information'
+#   - 'Tracker URL remover'
+#   - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
+>>>>>>> 41e848eb ([fix] typos / reported by @kianmeng in searx PR-3366)
 #   # these plugins are disabled if nothing is configured ..
 #   - 'Hostname replace'  # see hostname_replace configuration below
 #   - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
