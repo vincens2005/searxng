@@ -105,19 +105,16 @@ def _timestamp():
 
 def run():
     try:
-        # use a Redis lock to make sure there is no checker running at the same time
-        # (this should not happen, this is a safety measure)
-        with get_redis_client().lock(REDIS_LOCK_KEY, blocking_timeout=60, timeout=3600):
-            logger.info('Starting checker')
-            result: CheckerOk = {'status': 'ok', 'engines': {}, 'timestamp': _timestamp()}
-            for name, processor in PROCESSORS.items():
-                logger.debug('Checking %s engine', name)
-                checker = Checker(processor)
-                checker.run()
-                if checker.test_results.successful:
-                    result['engines'][name] = {'success': True}
-                else:
-                    result['engines'][name] = {'success': False, 'errors': checker.test_results.errors}
+        logger.info('Starting checker')
+        result: CheckerOk = {'status': 'ok', 'engines': {}, 'timestamp': _timestamp()}
+        for name, processor in PROCESSORS.items():
+            logger.debug('Checking %s engine', name)
+            checker = Checker(processor)
+            checker.run()
+            if checker.test_results.successful:
+                result['engines'][name] = {'success': True}
+            else:
+                result['engines'][name] = {'success': False, 'errors': checker.test_results.errors}
 
             _set_result(result)
             logger.info('Check done')

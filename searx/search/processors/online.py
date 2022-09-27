@@ -76,15 +76,9 @@ class OnlineProcessor(EngineProcessor):
     def _send_http_request(self, params):
         # create dictionary which contain all
         # information about the request
-        request_args = dict(headers=params['headers'], cookies=params['cookies'], auth=params['auth'])
-
-        # verify
-        # if not None, it overrides the verify value defined in the network.
-        # use False to accept any server certificate
-        # use a path to file to specify a server certificate
-        verify = params.get('verify')
-        if verify is not None:
-            request_args['verify'] = params['verify']
+        request_args = dict(
+            headers=params['headers'], cookies=params['cookies'], verify=params['verify'], auth=params['auth']
+        )
 
         # max_redirects
         max_redirects = params.get('max_redirects')
