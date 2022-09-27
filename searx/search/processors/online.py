@@ -7,7 +7,6 @@
 
 from timeit import default_timer
 import asyncio
-import ssl
 import httpx
 
 import searx.network
@@ -30,6 +29,7 @@ def default_request_params():
         'data': {},
         'url': '',
         'cookies': {},
+        'verify': True,
         'auth': None
         # fmt: on
     }
@@ -153,10 +153,6 @@ class OnlineProcessor(EngineProcessor):
             # send requests and parse the results
             search_results = self._search_basic(query, params)
             self.extend_container(result_container, start_time, search_results)
-        except ssl.SSLError as e:
-            # requests timeout (connect or read)
-            self.handle_exception(result_container, e, suspend=True)
-            self.logger.error("SSLError {}, verify={}".format(e, searx.network.get_network(self.engine_name).verify))
         except (httpx.TimeoutException, asyncio.TimeoutError) as e:
             # requests timeout (connect or read)
             self.handle_exception(result_container, e, suspend=True)
