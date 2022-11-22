@@ -45,20 +45,6 @@ search:
   ban_time_on_fail: 5
   # max ban time in seconds after engine errors
   max_ban_time_on_fail: 120
-  suspend_times:
-    # Engine suspension time after error (in seconds; set to 0 to disable)
-    # For error "Access denied" and "HTTP error [402, 403]"
-    SearxEngineAccessDenied: 86400
-    # For error "CAPTCHA"
-    SearxEngineCaptcha: 86400
-    # For error "Too many request" and "HTTP error 429"
-    SearxEngineTooManyRequests: 3600
-    # Cloudflare CAPTCHA
-    cf_SearxEngineCaptcha: 1296000
-    cf_SearxEngineAccessDenied: 86400
-    # ReCAPTCHA
-    recaptcha_SearxEngineCaptcha: 604800
-
   # remove format to deny access, use lower case.
   # formats: [html, csv, json, rss]
   formats:
@@ -200,28 +186,16 @@ outgoing:
 #
 enabled_plugins:
 #   # these plugins are enabled if nothing is configured ..
-<<<<<<< HEAD
-<<<<<<< HEAD
-    - 'Hash plugin'
-    - 'Search on category select'
-    - 'Self Informations'
-    - 'Tracker URL remover'
-    - 'Open Access DOI rewrite'
-=======
 #   - 'Hash plugin'
 #   - 'Search on category select'
 #   - 'Self Information'
 #   - 'Tracker URL remover'
 #   - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
->>>>>>> 41e848eb ([fix] typos / reported by @kianmeng in searx PR-3366)
 #   # these plugins are disabled if nothing is configured ..
 #   - 'Hostname replace'  # see hostname_replace configuration below
-#   - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
+    - 'Open Access DOI rewrite'
 #   - 'Vim-like hotkeys'
 #   - 'Tor check plugin'
-#   # Read the docs before activate: auto-detection of the language could be
-#   # detrimental to users expectations / users can activate the plugin in the
-#   # preferences if they want.
 #   - 'Autodetect search language'
 
 # Configuration of the "Hostname replace" plugin:
@@ -1733,12 +1707,12 @@ engines:
     engine: xpath
     paging: true
     categories: [general, web]
-    search_url: https://www.mojeek.com/search?q={query}&s={pageno}&lang={lang}&lb={lang}
-    results_xpath: //ul[@class="results-standard"]/li/a[@class="ob"]
+    search_url: https://www.mojeek.com/search?q={query}&s={pageno}
+    results_xpath: //a[@class="ob"]
     url_xpath: ./@href
-    title_xpath: ../h2/a
-    content_xpath: ..//p[@class="s"]
-    suggestion_xpath: //div[@class="top-info"]/p[@class="top-info spell"]/em/a
+    title_xpath: ./h2
+    content_xpath: ../p[@class="s"]
+    suggestion_xpath: /html/body//div[@class="top-info"]/p[@class="top-info spell"]/a
     first_page_num: 0
     page_size: 10
     disabled: true
@@ -1993,26 +1967,6 @@ engines:
       use_official_api: false
       require_api_key: false
       results: HTML
-
-  - name: goo
-    shortcut: goo
-    engine: xpath
-    paging: true
-    search_url: https://search.goo.ne.jp/web.jsp?MT={query}&FR={pageno}0
-    url_xpath: //div[@class="result"]/p[@class='title fsL1']/a/@href
-    title_xpath: //div[@class="result"]/p[@class='title fsL1']/a
-    content_xpath: //p[contains(@class,'url fsM')]/following-sibling::p
-    first_page_num: 0
-    categories: [general, web]
-    disabled: true
-    timeout: 4.0
-    about:
-      website: https://search.goo.ne.jp
-      wikidata_id: Q249044
-      use_official_api: false
-      require_api_key: false
-      results: HTML
-      language: ja
 
 # Doku engine lets you access to any Doku wiki instance:
 # A public one or a privete/corporate one.
