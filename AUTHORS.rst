@@ -166,4 +166,3 @@ features or generally made searx better:
 - Sam A. `<https://samsapti.dev>`_
 - @XavierHorwood
 - Ahmad Alkadri `<https://github.com/ahmad-alkadri>`_
-- Milad Laly @Milad-Laly
