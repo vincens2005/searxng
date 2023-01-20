@@ -21,8 +21,3 @@ gh-pages/
 /node_modules/
 
 .idea/
-
-searx/static/themes/simple/js/
-searx/static/themes/simple/css/
-searx/static/themes/simple/img/
-searx/static/themes/simple/node_modules/
