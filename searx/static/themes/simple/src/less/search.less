@@ -95,12 +95,6 @@
   grid-area: search;
 }
 
-#main_results {
-  .search_box {
-    position: absolute;
-  }
-}
-
 .search_box {
   border-radius: 0.5rem;
   width: @search-width;
@@ -109,6 +103,12 @@
   white-space: nowrap;
   box-shadow: var(--color-search-shadow);
   border: var(--search-border);
+}
+
+#main_results {
+  .search_box {
+    position: absolute;
+  }
 }
 
 #clear_search {
