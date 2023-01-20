@@ -103,11 +103,19 @@
   white-space: nowrap;
   box-shadow: var(--color-search-shadow);
   border: var(--search-border);
+  background: var(--color-search-background);
+
+  .search_box_inner {
+    display: inline-flex;
+    width: 100%;
+  }
 }
 
-#main_results {
-  .search_box {
-    position: absolute;
+@media screen and (max-width: @phone) {
+  #main_results {
+    .search_box {
+      position: absolute;
+    }
   }
 }
 
